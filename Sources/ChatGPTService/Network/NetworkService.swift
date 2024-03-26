@@ -24,8 +24,13 @@ final class NetworkService {
                     return
                 }
                 
-                let responseJSON = try? JSONDecoder().decode(T.self, from: data)
-                continuation.resume(returning: responseJSON)
+                do {
+                    let response = try JSONDecoder().decode(T.self, from: data)
+                    continuation.resume(returning: response)
+                } catch {
+                    print("🔴 Decoding failed: \(error)")
+                    continuation.resume(returning: nil)
+                }
             }
             
             task.resume()

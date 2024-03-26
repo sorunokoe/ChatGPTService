@@ -7,9 +7,14 @@
 
 import Foundation
 
-struct GptTurboResponse: Decodable {
+struct ChatCompletionResponse: Decodable {
+    let error: ChatCompletionError?
     let usage: GptTurboUsage
     let choices: [GptTurboChoices]
+}
+
+struct ChatCompletionError: Decodable {
+    let message: String
 }
 
 struct GptTurboUsage: Decodable {
