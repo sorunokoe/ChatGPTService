@@ -44,7 +44,7 @@ enum Target: TargetProtocol {
             [
                 "model": "gpt-3.5-turbo",
                 "messages": [["role": "user", "content": promt]],
-                "temperature": 0.7
+                "temperature": 0.3
             ]
         }
     }
