@@ -42,7 +42,7 @@ enum Target: TargetProtocol {
         switch self {
         case let .chat(promt):
             [
-                "model": "gpt-3.5-turbo",
+                "model": "gpt-4o",
                 "messages": [["role": "user", "content": promt]],
                 "temperature": 0.9
             ]

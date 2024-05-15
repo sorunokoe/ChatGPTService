@@ -23,7 +23,9 @@ final class NetworkService {
                     continuation.resume(returning: nil)
                     return
                 }
-                
+                #if DEBUG
+                print(String(data: data, encoding: .utf8))
+                #endif
                 do {
                     let response = try JSONDecoder().decode(T.self, from: data)
                     continuation.resume(returning: response)

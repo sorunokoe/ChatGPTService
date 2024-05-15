@@ -22,7 +22,7 @@ public final class ChatGPTService {
         if let message = response.error?.message {
             return .failure(ChatGPTServiceError.serverError(message))
         }
-        guard let content = response.choices.first?.message.content else {
+        guard let content = response.choices?.first?.message.content else {
             return .failure(ChatGPTServiceError.decodingError)
         }
         return .success(content)
