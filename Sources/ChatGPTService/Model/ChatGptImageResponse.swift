@@ -12,7 +12,7 @@ struct ChatGptImageResponse: Decodable {
 }
 
 public struct ImageURL: Decodable {
-    let url: String
+    public let url: String
     
     public init(url: String) {
         self.url = url
