@@ -28,6 +28,16 @@ public final class ChatGPTService {
         return .success(content)
     }
     
+    public func image(promt: String) async -> Result<ImageURL, Error> {
+        guard let response: ChatGptImageResponse = await networkService.request(target: .image(promt: promt)) else {
+            return .failure(ChatGPTServiceError.noResponse)
+        }
+        guard let content = response.data.first else {
+            return .failure(ChatGPTServiceError.decodingError)
+        }
+        return .success(content)
+    }
+    
 }
 
 enum ChatGPTServiceError: Error {

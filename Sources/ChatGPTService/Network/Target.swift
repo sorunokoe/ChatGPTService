@@ -21,13 +21,20 @@ protocol TargetProtocol {
 
 enum Target: TargetProtocol {
     case chat(promt: String)
+    case image(promt: String)
     
     var baseURL: String {
         "https://api.openai.com/v1"
     }
     
     var path: String {
-        "/chat/completions"
+        switch self {
+        case .chat:
+            return "/chat/completions"
+        case .image:
+            return "/images/generations"
+        }
+        
     }
     
     var header: [String: String] {
@@ -45,6 +52,13 @@ enum Target: TargetProtocol {
                 "model": "gpt-4o",
                 "messages": [["role": "user", "content": promt]],
                 "temperature": 0.9
+            ]
+        case let .image(promt):
+            [
+                "model": "dall-e-3",
+                "prompt": promt,
+                "n": 1,
+                "size": "512x512"
             ]
         }
     }
