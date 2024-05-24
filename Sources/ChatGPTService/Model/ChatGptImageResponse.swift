@@ -8,6 +8,7 @@
 import Foundation
 
 struct ChatGptImageResponse: Decodable {
+    let error: ChatCompletionError?
     let data: [ImageURL]
 }
 

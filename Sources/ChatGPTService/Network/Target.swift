@@ -58,7 +58,7 @@ enum Target: TargetProtocol {
                 "model": "dall-e-3",
                 "prompt": promt,
                 "n": 1,
-                "size": "512x512"
+                "size": "1024x1024"
             ]
         }
     }
