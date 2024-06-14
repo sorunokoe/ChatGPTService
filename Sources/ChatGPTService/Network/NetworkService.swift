@@ -12,7 +12,6 @@ final class NetworkService {
 
     init() {
         let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 30.0
         configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
 
         self.session = URLSession(configuration: configuration)
