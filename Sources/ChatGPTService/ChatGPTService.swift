@@ -6,7 +6,7 @@ struct SecurityCredentials {
     var token: String
 }
 
-public final class ChatGPTService {
+public final actor ChatGPTService {
     
     private let networkService: NetworkService
     
